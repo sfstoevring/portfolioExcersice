@@ -1,16 +1,18 @@
-import java.awt.event.MouseEvent;
-import java.awt.Frame;
-import java.awt.Graphics;
+import java.awt.*; //imports all awt libraries
+import javax.swing.*; //imports all swing libraries
 
 public class Main {
 
+
     public static void main(String[] args) {
-	// Koordinater skal følge positiv omløbsretning!
+
+        Frame frame = new Frame();
+        frame.createFrame(600,600);
 
 
 
 
-
+        // Koordinater skal følge positiv omløbsretning!
 
         Circle circle = new Circle(4,7,4);
 

@@ -1,3 +1,6 @@
+import java.awt.*;
+import javax.swing.*;
+
 public class Rectangle extends Shape {
 
     //Initialization of primitives
@@ -108,6 +111,7 @@ public class Rectangle extends Shape {
         System.out.println("Circumference of rectangle{" + perimeter + "}");
 
     }
+
 
     @Override
     public String toString(){

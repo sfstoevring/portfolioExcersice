@@ -1,4 +1,9 @@
-public abstract class Shape {
+import java.awt.*;
+import javax.swing.*;
+
+public abstract class Shape extends Frame {
+
+
 
 
     //Initialization of primitives
@@ -6,7 +11,6 @@ public abstract class Shape {
     //
     private double x1Value;
     private double y1Value;
-
 
 
 
@@ -98,6 +102,7 @@ public abstract class Shape {
     public void distanceBetweenShapes(Shape i, Shape j){
         //Euclidian distance method
     }
+
 
     /**
      * Method for printing the content of an object

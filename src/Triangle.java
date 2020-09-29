@@ -1,3 +1,5 @@
+import java.awt.*;
+
 public class Triangle extends Shape{
 
     //Initialization of primitives
