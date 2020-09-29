@@ -1,11 +1,4 @@
-import java.awt.*;
-import javax.swing.*;
-
-public abstract class Shape extends Frame {
-
-
-
-
+public abstract class Shape {
     //Initialization of primitives
     //
     //
@@ -103,12 +96,11 @@ public abstract class Shape extends Frame {
         //Euclidian distance method
     }
 
-
     /**
      * Method for printing the content of an object
      * @return relevant fields of a given object
      */
     public String toString(){
-        return "test";
+        return "default toString";
     }
 }
