@@ -65,11 +65,6 @@ public abstract class Shape {
     //
     //
     /**
-     * Calculates the center of a given shape
-     */
-    public void centerOfShape(){} //make abstract!
-
-    /**
      * Calculates the area of a given shape
      */
     public abstract void areaOfShape();
@@ -80,12 +75,9 @@ public abstract class Shape {
     public abstract void circumferenceOfShape();
 
     /**
-     * Calculates whether a coordinate is within a given shape
-     * @return true or false
+     * Calculates the center of a given shape
      */
-    public boolean pointInsideShape(){
-        return true;
-    }
+    public abstract void centerOfShape();
 
     /**
      * Calculates the distance (center -> center) between to shapes
@@ -94,6 +86,14 @@ public abstract class Shape {
      */
     public void distanceBetweenShapes(Shape i, Shape j){
         //Euclidian distance method
+    }
+
+    /**
+     * Calculates whether a coordinate is within a given shape
+     * @return true or false
+     */
+    public boolean pointInsideShape(){
+        return true;
     }
 
     /**

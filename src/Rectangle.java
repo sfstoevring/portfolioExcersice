@@ -109,6 +109,13 @@ public class Rectangle extends Shape {
 
     }
 
+    @Override
+    public void centerOfShape() {
+        double xCenter = (y4Value - getY1Value()) / 2;
+        double yCenter = (x2Value - getX1Value()) / 2;
+        System.out.println("Center of rectangle{" + xCenter + ";" + yCenter + "}");
+
+    }
 
     @Override
     public String toString(){

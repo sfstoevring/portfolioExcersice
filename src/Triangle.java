@@ -92,6 +92,13 @@ public class Triangle extends Shape{
     }
 
     @Override
+    public void centerOfShape() {
+        double xCenter = (getX1Value() + x2Value + x3Value) / 3;
+        double yCenter = (getY1Value() + y2Value + y3Value) / 3;
+        System.out.println("Center of triangle{" + xCenter + ";" + yCenter + "}");
+    }
+
+    @Override
     public String toString(){
         return "Triangle{" +
                 "x1=" + getX1Value() +

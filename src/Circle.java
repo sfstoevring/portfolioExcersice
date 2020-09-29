@@ -58,6 +58,11 @@ public class Circle extends Shape {
     }
 
     @Override
+    public void centerOfShape() {
+        System.out.println("Center of circle{" + getX1Value() + ";" + getY1Value() + "}");
+    }
+
+    @Override
     public String toString(){
         return "Circle{" +
                 "x1=" + getX1Value() +
