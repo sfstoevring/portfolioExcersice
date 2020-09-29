@@ -9,6 +9,7 @@ public class Triangle extends Shape{
     private double y2Value;
     private double x3Value;
     private double y3Value;
+    private String name;
 
 
 
@@ -17,19 +18,20 @@ public class Triangle extends Shape{
     //
     //
     public Triangle(){
-        this(1,1,2,2,3,1);
+        this(1,1,2,2,3,1, "Triangle");
     }
 
-    public Triangle(double x2Value, double y2Value, double x3Value, double y3Value) {
-        this(1,1,x2Value,y2Value,x3Value,y3Value);
+    public Triangle(double x2Value, double y2Value, double x3Value, double y3Value, String name) {
+        this(1,1,x2Value,y2Value,x3Value,y3Value, name);
     }
 
-    public Triangle(double x1Value, double y1Value, double x2Value, double y2Value, double x3Value, double y3Value) {
+    public Triangle(double x1Value, double y1Value, double x2Value, double y2Value, double x3Value, double y3Value, String name) {
         super(x1Value, y1Value);
         this.x2Value = x2Value;
         this.y2Value = y2Value;
         this.x3Value = x3Value;
         this.y3Value = y3Value;
+        this.name = name;
     }
 
 
@@ -70,6 +72,14 @@ public class Triangle extends Shape{
         this.y3Value = y3Value;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
 
 
 
@@ -92,10 +102,12 @@ public class Triangle extends Shape{
     }
 
     @Override
-    public void centerOfShape() {
+    public double[] centerOfShape() {
         double xCenter = (getX1Value() + x2Value + x3Value) / 3;
         double yCenter = (getY1Value() + y2Value + y3Value) / 3;
         System.out.println("Center of triangle{" + xCenter + ";" + yCenter + "}");
+        double[] outputValues = {xCenter,yCenter};
+        return outputValues;
     }
 
     @Override

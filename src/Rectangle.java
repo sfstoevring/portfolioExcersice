@@ -9,6 +9,7 @@ public class Rectangle extends Shape {
     private double y3Value;
     private double x4Value;
     private double y4Value;
+    private String name;
 
 
 
@@ -17,14 +18,14 @@ public class Rectangle extends Shape {
     //
     //
     public Rectangle(){
-        this(1,1,1,2,4,2,4,1);
+        this(1,1,1,2,4,2,4,1, "Rectangle");
     }
 
-    public Rectangle(double x2Value, double y2Value, double x3Value, double y3Value, double x4Value, double y4Value) {
-        this(1,1,x2Value,y2Value,x3Value,y3Value,x4Value,y4Value);
+    public Rectangle(double x2Value, double y2Value, double x3Value, double y3Value, double x4Value, double y4Value, String name) {
+        this(1,1,x2Value,y2Value,x3Value,y3Value,x4Value,y4Value, name);
     }
 
-    public Rectangle(double x1Value, double y1Value, double x2Value, double y2Value, double x3Value, double y3Value, double x4Value, double y4Value) {
+    public Rectangle(double x1Value, double y1Value, double x2Value, double y2Value, double x3Value, double y3Value, double x4Value, double y4Value, String name) {
         super(x1Value, y1Value);
         this.x2Value = x2Value;
         this.y2Value = y2Value;
@@ -32,6 +33,7 @@ public class Rectangle extends Shape {
         this.y3Value = y3Value;
         this.x4Value = x4Value;
         this.y4Value = y4Value;
+        this.name = name;
     }
 
 
@@ -88,6 +90,14 @@ public class Rectangle extends Shape {
         this.y4Value = y4Value;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
 
 
 
@@ -106,15 +116,15 @@ public class Rectangle extends Shape {
         double width = x2Value - getX1Value();
         double perimeter = (2 * height) + (2 * width);
         System.out.println("Circumference of rectangle{" + perimeter + "}");
-
     }
 
     @Override
-    public void centerOfShape() {
+    public double[] centerOfShape() {
         double xCenter = (y4Value - getY1Value()) / 2;
         double yCenter = (x2Value - getX1Value()) / 2;
         System.out.println("Center of rectangle{" + xCenter + ";" + yCenter + "}");
-
+        double[] outputValues = {xCenter,yCenter};
+        return outputValues;
     }
 
     @Override

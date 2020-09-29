@@ -4,6 +4,7 @@ public class Circle extends Shape {
     //
     //
     private double radius;
+    private String name;
 
 
 
@@ -12,17 +13,18 @@ public class Circle extends Shape {
     //
     //
     public Circle(){
-        this(1,1,1);
+        this(1,1,1, "Circle");
     }
 
-    public Circle(double radius) {
+    public Circle(double radius, String name) {
         //this.radius = radius;
-        this(1,1,radius);
+        this(1,1,radius, name);
     }
 
-    public Circle(double x1Value, double y1Value, double radius) {
+    public Circle(double x1Value, double y1Value, double radius, String name) {
         super(x1Value, y1Value);
         this.radius = radius;
+        this.name = name;
     }
 
 
@@ -37,6 +39,14 @@ public class Circle extends Shape {
 
     public void setRadius(double radius) {
         this.radius = radius;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
 
@@ -58,8 +68,12 @@ public class Circle extends Shape {
     }
 
     @Override
-    public void centerOfShape() {
-        System.out.println("Center of circle{" + getX1Value() + ";" + getY1Value() + "}");
+    public double[] centerOfShape() {
+        double xCenter = getX1Value();
+        double yCenter = getY1Value();
+        System.out.println("Center of circle{" + xCenter + ";" + yCenter + "}");
+        double[] outputValues = {xCenter,yCenter};
+        return outputValues;
     }
 
     @Override

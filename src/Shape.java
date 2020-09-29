@@ -77,15 +77,16 @@ public abstract class Shape {
     /**
      * Calculates the center of a given shape
      */
-    public abstract void centerOfShape();
+    public abstract double[] centerOfShape();
 
     /**
      * Calculates the distance (center -> center) between to shapes
-     * @param i = shape #1
-     * @param j = shape #2
+     * @param shape1 = array of center coordinates from shape #1
+     * @param shape2 = array of center coordinates from shape #2
      */
-    public void distanceBetweenShapes(Shape i, Shape j){
-        //Euclidian distance method
+    public void distanceBetweenShapes(double[] shape1, double[] shape2){
+        double distance = Math.sqrt( Math.pow((shape2[0] - shape1[0]), 2) + Math.pow((shape2[1] - shape1[1]), 2));
+        System.out.println("Distance between the two shapes{" + distance + "}");
     }
 
     /**
