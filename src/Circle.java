@@ -84,4 +84,17 @@ public class Circle extends Shape {
                 ", radius=" + radius +
                 "}";
     }
+
+    @Override
+    public void pointInsideShape(int x, int y) {
+        double conditionX = (x-getX1Value())*(x-getX1Value());
+        double conditionY = (y-getY1Value())*(y-getY1Value());
+        if ( conditionX + conditionY < (radius*radius)){
+            System.out.println("Point: {" + x + ", " + y + "} is inside the circle" );
+        }
+        //else if (conditionX + conditionY == (radius*radius)){System.out.println("Point: {" + x + ", " + y + "} is on the line of the circle" );}
+        else {
+            System.out.println("Point: {" + x + ", " + y + "} is not inside the circle" );
+        }
+    }
 }

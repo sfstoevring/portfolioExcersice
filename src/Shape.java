@@ -91,10 +91,8 @@ public abstract class Shape {
 
     /**
      * Calculates whether a coordinate is within a given shape
-     * @return true or false
      */
-    public boolean pointInsideShape(){
-        return true;
+    public void pointInsideShape(int x, int y){
     }
 
     /**

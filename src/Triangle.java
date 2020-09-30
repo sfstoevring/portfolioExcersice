@@ -1,4 +1,4 @@
-import java.awt.*;
+import java.security.cert.CertPathValidatorException;
 
 public class Triangle extends Shape{
 
@@ -80,7 +80,10 @@ public class Triangle extends Shape{
         this.name = name;
     }
 
-
+    //utility function to calculate area of triangle
+    public static double area(double x1, double y1, double  x2, double y2, double x3, double y3){
+        return (0.5)*(x1*(y2-y3) + x2*(y3-y1)+ x3*(y1-y2));
+    }
 
 
     //Methods
@@ -122,4 +125,26 @@ public class Triangle extends Shape{
                 "}";
     }
 
+    @Override
+    public void pointInsideShape(int x, int y) {
+        double x1 = getX1Value(),
+               y1 = getY1Value(),
+               x2 = getX2Value(),
+               y2 = getY2Value(),
+               x3 = getX3Value(),
+               y3 = getY3Value();
+        //Calculate the full area of the triangle
+        double A = Triangle.area(x1, y1, x2, y2, x3, y3);
+        //Split full area into three with the point you want to check
+        double A1 = Triangle.area(x, y, x2, y2, x3, y3);
+        double A2 = Triangle.area(x1, y1, x, y, x3, y3);
+        double A3 = Triangle.area(x1, y1, x2, y2, x, y);
+        //System.out.println("Area = " + A + " Area1 = " + A1 + " Area2 = " + A2 + " Area3 = " + A3);
+        //If the sum of the split triangles is the same as the original sum then the point is inside
+        if ((A1 + A2 + A3) == A) {
+            System.out.println("Point: {" + x + ", " + y + "} is inside the triangle");
+        }else {
+            System.out.println("Point: {" + x + ", " + y + "} is not inside the triangle");
+        }
+    }
 }

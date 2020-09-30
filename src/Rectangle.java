@@ -1,3 +1,5 @@
+import java.awt.*;
+
 public class Rectangle extends Shape {
 
     //Initialization of primitives
@@ -139,5 +141,14 @@ public class Rectangle extends Shape {
                 ", x4=" + x4Value +
                 ", y4=" + y4Value +
                 "}";
+    }
+
+    @Override
+    public void pointInsideShape(int x, int y) {
+        if (x > getX1Value() && x < getX3Value() && y > getY1Value() && y < getY3Value()){
+            System.out.println("Point: {" + x + ", " + y + "} is inside the rectangle" );
+        } else {
+            System.out.println("Point: {" + x + ", " + y + "} is not inside the rectangle" );
+        }
     }
 }
