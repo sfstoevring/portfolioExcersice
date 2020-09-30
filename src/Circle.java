@@ -13,7 +13,7 @@ public class Circle extends Shape {
     //
     //
     public Circle(){
-        this(1,1,1, "Circle");
+        this(1,1,1, "defaultCircle");
     }
 
     public Circle(double radius, String name) {

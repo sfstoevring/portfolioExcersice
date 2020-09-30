@@ -16,7 +16,7 @@ public class Triangle extends Shape{
     //
     //
     public Triangle(){
-        this(1,1,2,2,3,1, "Triangle");
+        this(1,1,2,2,3,1, "defaultTriangle");
     }
 
     public Triangle(double x2Value, double y2Value, double x3Value, double y3Value, String name) {

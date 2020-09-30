@@ -30,7 +30,6 @@ public class Main {
         circle.pointInsideShape(circle, 12, 8);
         triangle.pointInsideShape(triangle, 10, 11);
         rectangle.pointInsideShape(rectangle, 4, 3);
-
-
     }
+
 }
