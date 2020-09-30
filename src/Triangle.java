@@ -1,5 +1,3 @@
-import java.security.cert.CertPathValidatorException;
-
 public class Triangle extends Shape{
 
     //Initialization of primitives
@@ -80,19 +78,18 @@ public class Triangle extends Shape{
         this.name = name;
     }
 
-    //utility function to calculate area of triangle
-    public static double area(double x1, double y1, double  x2, double y2, double x3, double y3){
-        return (0.5)*(x1*(y2-y3) + x2*(y3-y1)+ x3*(y1-y2));
-    }
+
 
 
     //Methods
     //
     //
     @Override
-    public void areaOfShape(){
+    public double areaOfShape(){
         double area = (0.5)*(getX1Value()*(y2Value-y3Value)+x2Value*(y3Value-getY1Value())+x3Value*(getY1Value()-y2Value));
+        if(area < 0) area *= (-1);
         System.out.println("Area of triangle{" + area + "}");
+        return area;
     }
 
     @Override
@@ -122,29 +119,27 @@ public class Triangle extends Shape{
                 ", y2=" + y2Value +
                 ", x3=" + x3Value +
                 ", y3=" + y3Value +
+                ", name=" + name +
                 "}";
     }
 
-    @Override
-    public void pointInsideShape(int x, int y) {
-        double x1 = getX1Value(),
-               y1 = getY1Value(),
-               x2 = getX2Value(),
-               y2 = getY2Value(),
-               x3 = getX3Value(),
-               y3 = getY3Value();
-        //Calculate the full area of the triangle
-        double A = Triangle.area(x1, y1, x2, y2, x3, y3);
-        //Split full area into three with the point you want to check
-        double A1 = Triangle.area(x, y, x2, y2, x3, y3);
-        double A2 = Triangle.area(x1, y1, x, y, x3, y3);
-        double A3 = Triangle.area(x1, y1, x2, y2, x, y);
-        //System.out.println("Area = " + A + " Area1 = " + A1 + " Area2 = " + A2 + " Area3 = " + A3);
-        //If the sum of the split triangles is the same as the original sum then the point is inside
-        if ((A1 + A2 + A3) == A) {
-            System.out.println("Point: {" + x + ", " + y + "} is inside the triangle");
-        }else {
-            System.out.println("Point: {" + x + ", " + y + "} is not inside the triangle");
+    /**
+     * Calculates whether a coordinate is within a triangle shape
+     */
+    public void pointInsideShape(Triangle t, double x, double y) {
+        Triangle tempTriangle1 = new Triangle(t.getX1Value(), t.getY1Value(), t.getX2Value(), t.getY2Value(), x, y,"tempTriangle1");
+        Triangle tempTriangle2 = new Triangle(x, y, t.getX2Value(), t.getY2Value(), t.getX3Value(), t.getY3Value(), "tempTriangle2");
+        Triangle tempTriangle3 = new Triangle(t.getX1Value(), t.getY1Value(), x, y, t.getX3Value(), t.getY3Value(), "tempTriangle3");
+
+        double areaOfTempTriangle1 = tempTriangle1.areaOfShape();
+        double areaOfTempTriangle2 = tempTriangle2.areaOfShape();
+        double areaOfTempTriangle3 = tempTriangle3.areaOfShape();
+        double areaOfT = t.areaOfShape();
+
+        if(areaOfT == (areaOfTempTriangle1 + areaOfTempTriangle2 + areaOfTempTriangle3)){
+            System.out.println("The passed point{" + x + ";" + y + "} is inside '" + t.getName() + "'");
+        } else{
+            System.out.println("The passed point{" + x + ";" + y + "} is not inside '" + t.getName() + "'");
         }
     }
 }

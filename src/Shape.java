@@ -67,7 +67,7 @@ public abstract class Shape {
     /**
      * Calculates the area of a given shape
      */
-    public abstract void areaOfShape();
+    public abstract double areaOfShape();
 
     /**
      * Calculates the circumference of a given shape
@@ -80,19 +80,13 @@ public abstract class Shape {
     public abstract double[] centerOfShape();
 
     /**
-     * Calculates the distance (center -> center) between to shapes
+     * Calculates the distance (center <--> center) between two shapes
      * @param shape1 = array of center coordinates from shape #1
      * @param shape2 = array of center coordinates from shape #2
      */
     public void distanceBetweenShapes(double[] shape1, double[] shape2){
         double distance = Math.sqrt( Math.pow((shape2[0] - shape1[0]), 2) + Math.pow((shape2[1] - shape1[1]), 2));
         System.out.println("Distance between the two shapes{" + distance + "}");
-    }
-
-    /**
-     * Calculates whether a coordinate is within a given shape
-     */
-    public void pointInsideShape(int x, int y){
     }
 
     /**

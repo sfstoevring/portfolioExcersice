@@ -1,5 +1,3 @@
-import java.awt.*;
-
 public class Rectangle extends Shape {
 
     //Initialization of primitives
@@ -107,9 +105,10 @@ public class Rectangle extends Shape {
     //
     //
     @Override
-    public void areaOfShape(){
+    public double areaOfShape(){
         double area = (x2Value - getX1Value()) * (y4Value - getY1Value());
         System.out.println("Area of rectangle{" + area + "}");
+        return area;
     }
 
     @Override
@@ -129,6 +128,17 @@ public class Rectangle extends Shape {
         return outputValues;
     }
 
+    /**
+     * Calculates whether a coordinate is within a rectangle shape
+     */
+    public void pointInsideShape(Rectangle r, double x, double y) {
+        if( (r.getX1Value() <= x) && (x <= r.getX2Value()) && (r.getY1Value() <= y) && (y <= r.getY4Value()) ){
+            System.out.println("The passed point{" + x + ";" + y + "} is inside '" + r.getName() + "'");
+        } else {
+            System.out.println("The passed point{" + x + ";" + y + "} is not inside '" + r.getName() + "'");
+        }
+    }
+
     @Override
     public String toString(){
         return "Rectangle{" +
@@ -140,15 +150,7 @@ public class Rectangle extends Shape {
                 ", y3=" + y3Value +
                 ", x4=" + x4Value +
                 ", y4=" + y4Value +
+                ", name=" + name +
                 "}";
-    }
-
-    @Override
-    public void pointInsideShape(int x, int y) {
-        if (x > getX1Value() && x < getX3Value() && y > getY1Value() && y < getY3Value()){
-            System.out.println("Point: {" + x + ", " + y + "} is inside the rectangle" );
-        } else {
-            System.out.println("Point: {" + x + ", " + y + "} is not inside the rectangle" );
-        }
     }
 }

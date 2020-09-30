@@ -17,7 +17,6 @@ public class Circle extends Shape {
     }
 
     public Circle(double radius, String name) {
-        //this.radius = radius;
         this(1,1,radius, name);
     }
 
@@ -56,9 +55,10 @@ public class Circle extends Shape {
     //
     //
     @Override
-    public void areaOfShape(){
+    public double areaOfShape(){
         double area = (getRadius() * getRadius() * Math.PI);
         System.out.println("Area of circle{" + area + "}");
+        return area;
     }
 
     @Override
@@ -76,25 +76,26 @@ public class Circle extends Shape {
         return outputValues;
     }
 
+    /**
+     * Calculates whether a coordinate is within a circle shape
+     */
+    public void pointInsideShape(Circle c, double x, double y) {
+
+        double distance = Math.sqrt( Math.pow((c.getX1Value() - x), 2) + Math.pow((c.getY1Value() - y), 2));
+        if(distance <= c.getRadius()){
+            System.out.println("The passed point{" + x + ";" + y + "} is inside '" + c.getName() + "'");
+        } else {
+            System.out.println("The passed point{" + x + ";" + y + "} is not inside '" + c.getName() + "'");
+        }
+    }
+
     @Override
     public String toString(){
         return "Circle{" +
                 "x1=" + getX1Value() +
                 ", y1=" + getY1Value() +
                 ", radius=" + radius +
+                ", name=" + name +
                 "}";
-    }
-
-    @Override
-    public void pointInsideShape(int x, int y) {
-        double conditionX = (x-getX1Value())*(x-getX1Value());
-        double conditionY = (y-getY1Value())*(y-getY1Value());
-        if ( conditionX + conditionY < (radius*radius)){
-            System.out.println("Point: {" + x + ", " + y + "} is inside the circle" );
-        }
-        //else if (conditionX + conditionY == (radius*radius)){System.out.println("Point: {" + x + ", " + y + "} is on the line of the circle" );}
-        else {
-            System.out.println("Point: {" + x + ", " + y + "} is not inside the circle" );
-        }
     }
 }
