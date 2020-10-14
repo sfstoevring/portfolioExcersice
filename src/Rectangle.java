@@ -13,9 +13,6 @@ public class Rectangle extends Shape {
     public Rectangle(){
         this(1,1,4,1,4,4,1,4, "defaultRectangle");
     }
-    public Rectangle(double x2Value, double y2Value, double x3Value, double y3Value, double x4Value, double y4Value, String name) {
-        this(1,1,x2Value,y2Value,x3Value,y3Value,x4Value,y4Value, name);
-    }
     public Rectangle(double x1Value, double y1Value, double x2Value, double y2Value, double x3Value, double y3Value, double x4Value, double y4Value, String name) {
         super(x1Value, y1Value);
         this.x2Value = x2Value;
