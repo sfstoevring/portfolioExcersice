@@ -3,13 +3,12 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ShapeTest {
+    Rectangle rectangle = new Rectangle(0,0,2,2,"testRectangle");
+    Circle circle = new Circle(5, "testCircle");
+    Triangle triangle = new Triangle(1,1,4,1,1,5,"testTriangle");
 
         @Test
         void areaOfShape() {
-            Rectangle rectangle = new Rectangle(0,0,2,2,"testRectangle");
-            Circle circle = new Circle(5, "testCircle");
-            Triangle triangle = new Triangle(1,1,4,1,1,5,"testTriangle");
-
             assertEquals(4, rectangle.areaOfShape());
             assertEquals(5*5*Math.PI, circle.areaOfShape());
             assertEquals(6, triangle.areaOfShape());
@@ -17,10 +16,6 @@ class ShapeTest {
 
         @Test
         void circumferenceOfShape() {
-            Rectangle rectangle = new Rectangle(0,0,2,2,"testRectangle");
-            Circle circle = new Circle(5, "testCircle");
-            Triangle triangle = new Triangle(1,1,4,1,1,5,"testTriangle");
-
             assertEquals(2+2+2+2, rectangle.circumferenceOfShape());
             assertEquals(5*2*Math.PI, circle.circumferenceOfShape());
             assertEquals(3+4+5, triangle.circumferenceOfShape());
@@ -28,10 +23,6 @@ class ShapeTest {
 
         @Test
         void centerOfShape() {
-            Rectangle rectangle = new Rectangle(0,0,2,2,"testRectangle");
-            Circle circle = new Circle(5, "testCircle");
-            Triangle triangle = new Triangle(1,1,4,1,1,5,"testTriangle");
-
             double[] test = {1,1};
             double[] test2 = {2,2.3};
 
@@ -42,10 +33,6 @@ class ShapeTest {
 
         @Test
         void distanceBetweenShapes() {
-            Rectangle rectangle = new Rectangle(0,0,2,2,"testRectangle");
-            Circle circle = new Circle(5, "testCircle");
-            Triangle triangle = new Triangle(1,1,4,1,1,5,"testTriangle");
-
             assertEquals(0, rectangle.distanceBetweenShapes(circle));
             assertEquals(1.6, rectangle.distanceBetweenShapes(triangle), 0.1);
             assertEquals(0, circle.distanceBetweenShapes(rectangle));
@@ -56,10 +43,6 @@ class ShapeTest {
 
         @Test
         void pointInsideShape() {
-            Rectangle rectangle = new Rectangle(0,0,2,2,"testRectangle");
-            Circle circle = new Circle(5, "testCircle");
-            Triangle triangle = new Triangle(1,1,4,1,1,5,"testTriangle");
-
             assertTrue(rectangle.pointInsideShape(1,1));
             assertTrue(circle.pointInsideShape(1,1));
             assertTrue(triangle.pointInsideShape(2,2));
